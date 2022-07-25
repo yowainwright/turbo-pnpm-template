@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
       - uses: actions/checkout@v3
       - name: Install Node.js
@@ -38,17 +38,17 @@ jobs:
         env:
           CI: true
 
-      - name: Turborepo local server
-        uses: felixmosh/turborepo-gh-artifacts@v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          server-token: ${{ secrets.TURBO_SERVER_TOKEN }}
+#       - name: Turborepo local server
+#         uses: felixmosh/turborepo-gh-artifacts@v1
+#         with:
+#           repo-token: ${{ secrets.GITHUB_TOKEN }}
+#           server-token: ${{ secrets.TURBO_SERVER_TOKEN }}
 
-      - name: Lint
-        run: pnpm lint --api="http://127.0.0.1:9080" --token="${{ secrets.TURBO_SERVER_TOKEN }}" --team="yowainwright"
-      - name: Build
-        run: pnpm build --api="http://127.0.0.1:9080" --token="${{ secrets.TURBO_SERVER_TOKEN }}" --team="yowainwright"
-      - name: Test
-        run: pnpm test --api="http://127.0.0.1:9080" --token="${{ secrets.TURBO_SERVER_TOKEN }}" --team="yowainwright"
-        env:
-          CI: true
+#       - name: Lint
+#         run: pnpm lint --api="http://127.0.0.1:9080" --token="${{ secrets.TURBO_SERVER_TOKEN }}" --team="yowainwright"
+#       - name: Build
+#         run: pnpm build --api="http://127.0.0.1:9080" --token="${{ secrets.TURBO_SERVER_TOKEN }}" --team="yowainwright"
+#       - name: Test
+#         run: pnpm test --api="http://127.0.0.1:9080" --token="${{ secrets.TURBO_SERVER_TOKEN }}" --team="yowainwright"
+#         env:
+#           CI: true
